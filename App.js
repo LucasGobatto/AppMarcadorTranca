@@ -1,39 +1,13 @@
 import React from 'react';
-import {StyleSheet, View, Button, Image} from 'react-native';
+import Route from './scr/pages/routes';
+import {NavigationContainer} from '@react-navigation/native';
+import {StatusBar} from 'react-native';
 
-const App = () => {
+export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.logo}>
-        <Image
-          style={styles.image}
-          source={{url: 'https://reactnative.dev/img/tiny_logo.png'}}
-        />
-      </View>
-      <View style={styles.body}>
-        <Button title="Novo Jogo" />
-        <Button title="Regras" />
-      </View>
-    </View>
+    <NavigationContainer>
+      <StatusBar barStyle="light-content" />
+      <Route />
+    </NavigationContainer>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-  },
-  logo: {
-    marginTop: 100,
-    alignItems: 'center',
-  },
-  image: {
-    width: 100,
-    height: 100,
-  },
-  body: {
-    alignItems: 'center',
-  },
-});
-
-export default App;
+}
