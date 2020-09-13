@@ -3,12 +3,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-import Dashboard from './dashboard';
-import NewGame from './newGame';
-import Placar from './placar';
-import Regras from './rules';
+import {Dashboard} from './dashboard-page';
+import {NewGame} from './new-game-page';
+import {Scores} from './scores-page';
+import {Detail} from './rules-page';
 
-export default function Route() {
+export function Route() {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -16,24 +16,24 @@ export default function Route() {
         headerTintColor: '#fff',
       }}>
       <Stack.Screen
-        name="dashboard"
+        name="Dashboard"
         component={Dashboard}
         options={{title: 'Marcador de Tranca'}}
       />
       <Stack.Screen
-        name="newGame"
+        name="NewGame"
         component={NewGame}
         options={{title: 'Novo Jogo'}}
       />
       <Stack.Screen
-        name="Placar"
-        component={Placar}
+        name="Scores"
+        component={Scores}
         options={{title: 'Placar'}}
       />
       <Stack.Screen
-        name="regras"
-        component={Regras}
-        options={{title: 'Regras do Jogo'}}
+        name="Detail"
+        component={Detail}
+        options={{title: 'Detalhes do Jogo'}}
       />
     </Stack.Navigator>
   );
