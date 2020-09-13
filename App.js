@@ -1,5 +1,5 @@
 import React from 'react';
-import Route from './scr/pages/routes';
+import {Route} from './scr/pages/routes';
 import {NavigationContainer} from '@react-navigation/native';
 import {StatusBar} from 'react-native';
 
