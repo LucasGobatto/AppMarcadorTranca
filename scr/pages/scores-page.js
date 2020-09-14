@@ -48,8 +48,8 @@ export function Scores() {
     const result = await getData(teamNamesKey);
     if (result != null) {
       const teamNames = JSON.parse(result);
-      setTeam1Name(teamNames.player1);
-      setTeam2Name(teamNames.player3);
+      setTeam1Name(teamNames.team1);
+      setTeam2Name(teamNames.team2);
     }
   }
 

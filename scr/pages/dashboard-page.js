@@ -66,6 +66,11 @@ export const Dashboard = () => {
           onPress={() => navigate('Detail')}>
           <Text style={styles.buttonText}>Detalhes</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.touchableOpacity}
+          onPress={() => navigate('NukeTown')}>
+          <Text style={styles.buttonText}>Testes</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
