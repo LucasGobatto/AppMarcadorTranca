@@ -7,6 +7,7 @@ import {Dashboard} from './dashboard-page';
 import {NewGame} from './new-game-page';
 import {Scores} from './scores-page';
 import {Detail} from './rules-page';
+import {NukeTown} from './nuke-town-page';
 
 export function Route() {
   return (
@@ -34,6 +35,11 @@ export function Route() {
         name="Detail"
         component={Detail}
         options={{title: 'Detalhes do Jogo'}}
+      />
+      <Stack.Screen
+        name="NukeTown"
+        component={NukeTown}
+        options={{title: 'Campo para Testes'}}
       />
     </Stack.Navigator>
   );

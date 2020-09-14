@@ -13,12 +13,13 @@ import {useNavigation} from '@react-navigation/native';
 import {styles} from '../assets/styles/new-game-style';
 import {storeData} from '../assets/storage/async-storage';
 import {teamNamesKey} from '../assets/storage/key-names';
+import {equipName} from '../scripts/equip-name';
 
 export const NewGame = () => {
-  const [name1, setName1] = useState('Jonas');
-  const [name2, setName2] = useState('Fernando');
-  const [name3, setName3] = useState('Douglas');
-  const [name4, setName4] = useState('Isabela');
+  const [name1, setName1] = useState('');
+  const [name2, setName2] = useState('');
+  const [name3, setName3] = useState('');
+  const [name4, setName4] = useState('');
   const {navigate} = useNavigation();
 
   function handleSubmits() {
@@ -52,13 +53,13 @@ export const NewGame = () => {
   }
 
   async function goToScorePage() {
-    const players = JSON.stringify({
-      player1: name1,
-      player2: name2,
-      player3: name3,
-      player4: name4,
+    const team1 = equipName(name1, name2);
+    const team2 = equipName(name3, name4);
+    const teamNames = JSON.stringify({
+      team1,
+      team2,
     });
-    await storeData(teamNamesKey, players);
+    await storeData(teamNamesKey, teamNames);
     navigate('Scores');
   }
 

@@ -1,8 +1,6 @@
-import {cutName} from './cut-names';
+import {cutName} from './cut-names.es6';
 
 export function equipName(name1, name2) {
-  let name1 = name1.lowerCase();
-  let name2 = name2.lowerCase();
   name1 = cutName(name1);
   name2 = cutName(name2);
   return makeRandomName(name1, name2);
@@ -10,24 +8,28 @@ export function equipName(name1, name2) {
 
 function makeRandomName(name1, name2) {
   const randomList = [];
-  const randomName = [];
-  const maxValue = 6;
-  var name = '';
+  let randomName = '';
+  const maxValue = 3;
 
   name1.map((i) => randomList.push(i));
   name2.map((i) => randomList.push(i));
+  console.log(name1, randomList.length);
+  console.log(name2, randomList.length);
 
   let i = 0;
+  let initial = 0;
   while (i < maxValue) {
-    var index = getRandomInt(0, randomList.length);
+    var index = getRandomInt(initial, randomList.length);
     if (randomName.indexOf(randomList[index]) === -1) {
-      randomName.push(randomList[index]);
+      randomName += randomList[index];
+      if (i === initial + 1) {
+        initial++;
+      }
       i++;
     }
   }
-  randomList.map((p) => (name += p));
-
-  return name;
+  randomName = randomName.charAt(0).toUpperCase() + randomName.slice(1);
+  return randomName;
 }
 
 function getRandomInt(min, max) {
