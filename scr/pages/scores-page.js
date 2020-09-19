@@ -73,7 +73,7 @@ export function Scores() {
   function validation() {
     if (isNaN(newTeam2Point) || isNaN(newTeam1Point)) {
       Alert.alert('Digite apenas números');
-    } else if (newTeam1Point === '' || newTeam2Point === '') {
+    } else if (!newTeam1Point || !newTeam2Point) {
       Alert.alert('Há campos vazios. Digite um número');
     } else {
       contaPonto();
@@ -81,7 +81,7 @@ export function Scores() {
   }
 
   async function storeScores() {
-    if (team1Score !== 0 && team2Score !== 0) {
+    if (team1Score && team2Score) {
       const scores = JSON.stringify({
         team1Score: team1Points,
         team2Score: team2Points,
@@ -152,25 +152,15 @@ export function Scores() {
         </View>
       </ScrollView>
       <View style={styles.buttonsFormat}>
-        <TouchableOpacity
-          style={styles.buttonDesygn}
-          onPress={() => {
-            storeScores();
-          }}>
+        <TouchableOpacity style={styles.buttonDesygn} onPress={storeScores}>
           <Text style={styles.buttonText}>H</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttonDesygn}
-          onPress={() => {
-            validation();
-          }}>
+        <TouchableOpacity style={styles.buttonDesygn} onPress={validation}>
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonDesygn}
-          onPress={() => {
-            comeBackToNewGame();
-          }}>
+          onPress={comeBackToNewGame}>
           <Text style={styles.buttonText}>X</Text>
         </TouchableOpacity>
       </View>
