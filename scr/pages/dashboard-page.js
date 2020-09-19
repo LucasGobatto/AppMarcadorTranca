@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Image, Text} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {View, Image} from 'react-native';
 import {useNavigation, useIsFocused} from '@react-navigation/native';
 import {styles} from '../assets/styles/dashboard-style.js';
 import {getData, removeAllData} from '../assets/storage/async-storage';
 import {teamNamesKey, teamScoreKey} from '../assets/storage/key-names';
 import {confirmAlert} from '../scripts/confirm-alert';
+
+import {SquareButton} from '../components/molecules/button.mole';
 
 export const Dashboard = () => {
   const {navigate} = useNavigation();
@@ -49,28 +50,12 @@ export const Dashboard = () => {
         />
       </View>
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity
-          style={styles.touchableOpacity}
-          onPress={() => goToNewGamePage()}>
-          <Text style={styles.buttonText}>Novo Jogo</Text>
-        </TouchableOpacity>
+        <SquareButton text="Novo Jogo" onPress={goToNewGamePage} />
         {continueGameExists && (
-          <TouchableOpacity
-            style={styles.touchableOpacity}
-            onPress={() => navigate('Scores')}>
-            <Text style={styles.buttonText}>Continue</Text>
-          </TouchableOpacity>
+          <SquareButton text="Continue" onPress={() => navigate('Scores')} />
         )}
-        <TouchableOpacity
-          style={styles.touchableOpacity}
-          onPress={() => navigate('Detail')}>
-          <Text style={styles.buttonText}>Detalhes</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.touchableOpacity}
-          onPress={() => navigate('NukeTown')}>
-          <Text style={styles.buttonText}>Testes</Text>
-        </TouchableOpacity>
+        <SquareButton text="Detalhes" onPress={() => navigate('Detail')} />
+        <SquareButton text="Testes" onPress={() => navigate('NukeTown')} />
       </View>
     </View>
   );

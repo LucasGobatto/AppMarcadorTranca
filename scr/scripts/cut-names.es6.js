@@ -17,7 +17,7 @@ function _pj_snippets(container) {
       }
     }
   }
-  container['in_es6'] = in_es6;
+  container.in_es6 = in_es6;
   return container;
 }
 _pj = {};

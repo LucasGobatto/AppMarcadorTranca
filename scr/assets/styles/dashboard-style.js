@@ -20,17 +20,4 @@ export const styles = StyleSheet.create({
   buttonsContainer: {
     height: '40%',
   },
-  touchableOpacity: {
-    backgroundColor: '#FFF',
-    borderRadius: 10,
-    margin: 10,
-    width: 200,
-  },
-  buttonText: {
-    margin: 10,
-    fontSize: 18,
-    fontWeight: 'bold',
-    alignSelf: 'center',
-    textTransform: 'uppercase',
-  },
 });

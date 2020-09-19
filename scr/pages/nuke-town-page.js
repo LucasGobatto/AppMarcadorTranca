@@ -1,13 +1,16 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {equipName} from '../scripts/equip-name';
+import {equipName, getRandomInt} from '../scripts/equip-name';
+import {randomNames} from '../assets/storage/random_names';
 
 export function NukeTown() {
+  const firstName = randomNames[getRandomInt(0, randomNames.length)];
+  const secondName = randomNames[getRandomInt(0, randomNames.length)];
   console.log('-'.repeat(30));
-  const name = equipName('rodrigo', 'amanda');
+  const name = equipName(firstName, secondName);
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>NukeTown</Text>
+      <Text style={styles.text}>Random Name:</Text>
       <Text style={styles.text}>{name}</Text>
     </View>
   );
