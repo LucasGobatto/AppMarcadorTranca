@@ -2,18 +2,18 @@
 import React, {useEffect, useState} from 'react';
 import {Text, View, Alert, KeyboardAvoidingView, Platform} from 'react-native';
 import {useNavigation, useIsFocused} from '@react-navigation/native';
-import {
-  TouchableOpacity,
-  TextInput,
-  ScrollView,
-} from 'react-native-gesture-handler';
+import {TextInput, ScrollView} from 'react-native-gesture-handler';
 
 import {getData, removeData, storeData} from '../assets/storage/async-storage';
 import {teamNamesKey, teamScoreKey} from '../assets/storage/key-names';
 import {styles} from '../assets/styles/scores-style.js';
 import {confirmAlert} from '../scripts/confirm-alert';
 
+import {CircularButton} from '../components/molecules/button.mole';
+import {auxColors, themeColors} from '../components/theme/theme.colors';
+
 export function Scores() {
+  //TODO: SET AN STATE LIKE AN OBJECT WHICH HAVE ALL THE INFORMATIONS ABOUT TEAMS POINTS
   const [newTeam1Point, setNewTeam1Point] = useState('');
   const [newTeam2Point, setNewTeam2Point] = useState('');
   const [team1Score, setTeam1Score] = useState(0);
@@ -152,17 +152,24 @@ export function Scores() {
         </View>
       </ScrollView>
       <View style={styles.buttonsFormat}>
-        <TouchableOpacity style={styles.buttonDesygn} onPress={storeScores}>
-          <Text style={styles.buttonText}>H</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonDesygn} onPress={validation}>
-          <Text style={styles.buttonText}>+</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttonDesygn}
-          onPress={comeBackToNewGame}>
-          <Text style={styles.buttonText}>X</Text>
-        </TouchableOpacity>
+        <CircularButton
+          backgroudColor={auxColors.firstAuxColor}
+          color={themeColors.secColor}
+          onPress={storeScores}
+          text="H"
+        />
+        <CircularButton
+          backgroudColor={auxColors.firstAuxColor}
+          color={themeColors.secColor}
+          onPress={validation}
+          text="+"
+        />
+        <CircularButton
+          backgroudColor={auxColors.firstAuxColor}
+          color={themeColors.secColor}
+          onPress={comeBackToNewGame}
+          text="X"
+        />
       </View>
     </KeyboardAvoidingView>
   );

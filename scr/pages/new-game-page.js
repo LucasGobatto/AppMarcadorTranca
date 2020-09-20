@@ -7,7 +7,7 @@ import {teamNamesKey} from '../assets/storage/key-names';
 import {equipName} from '../scripts/equip-name';
 
 import {Forms} from '../components/molecules/forms.mole';
-import {CircleButton} from '../components/molecules/button.mole';
+import {CircularButton} from '../components/molecules/button.mole';
 
 export const NewGame = () => {
   const [name1, setName1] = useState({text: '', isValid: false});
@@ -17,6 +17,7 @@ export const NewGame = () => {
   const {navigate} = useNavigation();
 
   function handleSubmits() {
+    console.log('here');
     if (name1.isValid && name2.isValid && name3.isValid && name4.isValid) {
       goToScorePage();
     }
@@ -55,7 +56,7 @@ export const NewGame = () => {
             text="Equipe 1"
           />
         </View>
-        <CircleButton onPress={handleSubmits} text="Ok" />
+        <CircularButton onPress={handleSubmits} text="Ok" />
       </View>
     </KeyboardAvoidingView>
   );

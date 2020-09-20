@@ -11,10 +11,16 @@ export const SquareButton = (props) => {
   );
 };
 
-export const CircleButton = (props) => {
+export const CircularButton = (props) => {
   return (
-    <TouchableCircle onPress={props.onPress}>
-      <Label color={themeColors.secColor}>{props.text}</Label>
+    <TouchableCircle
+      backgroundColor={
+        props.backgroudColor ? props.backgroudColor : themeColors.mainColor
+      }
+      onPress={props.onPress}>
+      <Label color={props.color ? props.color : themeColors.secColor}>
+        {props.text}
+      </Label>
     </TouchableCircle>
   );
 };
