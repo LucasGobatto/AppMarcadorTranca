@@ -8,3 +8,12 @@ export const VBox = styled.View`
   border-radius: 10px;
   border-color: ${themeColors.mainColor};
 `;
+
+export const Hbox = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const Root = styled.View`
+  flex: 1;
+`;
